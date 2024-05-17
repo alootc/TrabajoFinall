@@ -6,50 +6,64 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
-    private float upForce = 250f;
+    private float upForce = 90f;
+    private float force = 10f;
+
+    private PlayerInput playerInput;
+    private Vector2 input;
 
 
+    //public float speedX;
+    //public float raycastDistance = 1f;
+
+    //public float _xMovement;
+    //public float _zMovement;
 
 
-
-
-    public float speedX;
-    public float raycastDistance = 1f;
-
-    public float _xMovement;
-    public float _zMovement;
-
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-
-    }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerInput = GetComponent<PlayerInput>();
     }
 
-
-
-    void Move()
+    private void Update()
     {
-        rb.velocity = new Vector3(_xMovement * speedX, rb.velocity.y, _zMovement * speedX);
+
+        input = playerInput.actions["Move"].ReadValue<Vector2>();
+
+        
     }
 
-    public void OnMovementX(InputAction.CallbackContext context)
+    private void FixedUpdate()
     {
-        _xMovement = context.ReadValue<float>();
+
+        rb.AddForce(new Vector3(input.x, 0f, input.y) * force);
+
     }
 
-    public void OnMovementZ(InputAction.CallbackContext context)
+    //void Move()
+    //{
+    //    rb.velocity = new Vector3(_xMovement * speedX, rb.velocity.y, _zMovement * speedX);
+    //}
+
+    //public void OnMovementX(InputAction.CallbackContext context)
+    //{
+    //    _xMovement = context.ReadValue<float>();
+    //}
+
+    //public void OnMovementZ(InputAction.CallbackContext context)
+    //{
+    //    _zMovement = context.ReadValue<float>();
+    //}
+
+    public void Jump(InputAction.CallbackContext callbackContext)
     {
-        _zMovement = context.ReadValue<float>();
+        if (callbackContext.performed)
+        {
+            rb.AddForce(Vector3.up * upForce);
+        }
+        
     }
 
-    public void Jump()
-    {
-        rb.AddForce(Vector3.up * upForce);
-    }
 }
