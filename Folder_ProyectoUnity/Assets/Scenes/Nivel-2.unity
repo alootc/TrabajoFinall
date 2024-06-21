@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -630,6 +630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 450696648}
   - component: {fileID: 450696647}
+  - component: {fileID: 450696649}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -714,6 +715,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &450696649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450696646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &714570180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,9 +1464,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9616eee597c8964bb59ee8288d598ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pivot: {fileID: 48203234}
-  bulletPrefab: {fileID: 6189431121018175150, guid: cfd7ff974c6ea6d468dbc341954fd42c, type: 3}
-  enemy_tag: 
+  speed: 50
+  bullet: {fileID: 0}
+  audioSource: {fileID: 0}
+  shoot: {fileID: 0}
 --- !u!4 &1516501821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 16d8dffce5417bc4a9b8eb8e1ef2fbbe, type: 3}
@@ -1511,7 +1536,7 @@ PrefabInstance:
     - target: {fileID: -2731642876624653374, guid: 52729b8446a84884ca43b136db48f213, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: aa2a31e0beaf6ee4b9b58292b619d4af, type: 2}
+      objectReference: {fileID: 2100000, guid: 24226997470c8cb44b86b32c61defe9e, type: 2}
     - target: {fileID: 919132149155446097, guid: 52729b8446a84884ca43b136db48f213, type: 3}
       propertyPath: m_Name
       value: ocean_low
@@ -1832,11 +1857,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 16d8dffce5417bc4a9b8eb8e1ef2fbbe, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b503db37410245b4586667929f59324f, type: 2}
+      objectReference: {fileID: 2100000, guid: c3b5f1b554008f4408261147d8d6c2b7, type: 2}
     - target: {fileID: -7511558181221131132, guid: 16d8dffce5417bc4a9b8eb8e1ef2fbbe, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: b503db37410245b4586667929f59324f, type: 2}
+      objectReference: {fileID: 2100000, guid: c3b5f1b554008f4408261147d8d6c2b7, type: 2}
     - target: {fileID: 919132149155446097, guid: 16d8dffce5417bc4a9b8eb8e1ef2fbbe, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1844,7 +1869,7 @@ PrefabInstance:
     - target: {fileID: 2164724070813637474, guid: 16d8dffce5417bc4a9b8eb8e1ef2fbbe, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b503db37410245b4586667929f59324f, type: 2}
+      objectReference: {fileID: 2100000, guid: 2199497f23f15bc418ad1db9877d9305, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
