@@ -18,10 +18,10 @@ public class UIManager : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene("Nivel-2");
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    SceneManager.LoadScene("Nivel-2");
+        //}
     }
 
     public void AddVolume(string id)
