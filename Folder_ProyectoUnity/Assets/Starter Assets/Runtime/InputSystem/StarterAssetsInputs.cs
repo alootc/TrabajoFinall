@@ -2,6 +2,7 @@ using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
+using System;
 
 namespace StarterAssets
 {
@@ -12,7 +13,9 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+
         public bool interact;
+		public static event Action onInteract;
 
         [Header("Movement Settings")]
 		public bool analogMovement;
@@ -75,6 +78,9 @@ namespace StarterAssets
         public void InteractInput(bool newInteractState)
         {
             interact = newInteractState;
+
+			if(interact)
+				onInteract?.Invoke();
         }
 
         private void OnApplicationFocus(bool hasFocus)

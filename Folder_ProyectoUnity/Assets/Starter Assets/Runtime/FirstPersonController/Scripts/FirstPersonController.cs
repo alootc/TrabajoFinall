@@ -116,11 +116,7 @@ namespace StarterAssets
 			GroundedCheck();
 			Move();
 
-            if (_input.interact)
-            {
-                _input.interact = false;
-                Debug.Log("Interacion");
-            }
+           
         }
 
 		private void LateUpdate()
