@@ -22,6 +22,6 @@ public class Helicoptero : MonoBehaviour
         
         float inputRotacion = Input.GetAxis("Horizontal");
         float velocidadRotacion = 100f; 
-        transform.Rotate(Vector3.up * inputRotacion * velocidadRotacion * Time.fixedDeltaTime);
+        transform.Rotate(Vector3.right * inputRotacion * velocidadRotacion * Time.fixedDeltaTime);
     }
 }

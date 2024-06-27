@@ -49,34 +49,25 @@ public class PlayerInteract : MonoBehaviour
         {
             if (hit.collider.TryGetComponent(out Interactable o))
             {
-                text_message.text = o.prompt_message;
+                text_message.text = o.mensaje;
                 interactable = o;
             }
-            //Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
-            //if(interactable != null)
-            //{
-            //    text_message.text = interactable.prompt_message;
-
-            //    if (input.interact && !is_interact)
-            //    {
-            //        is_interact = true;
-            //        interactable.BaseInteract();
-
-            //    }
-            //}
             
         }
-        //if(!input.interact) is_interact = false;
-
+       
     }
     private void Interact()
     {
         if (!interactable) return;
-        interactable.BaseInteract();
+        
 
-        if (interactable.TryGetComponent(out Icollectionable collection))
+        if (interactable.TryGetComponent(out Collectionable c))
         {
-            inventario.AddInventario(interactable.id);
+            c.Grab(inventario);
+            
+            
+            //inventario.AddInventario(interactable.id);
         }
+        interactable.BaseInteract();
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class keydoor : Interactable, Icollectionable
+public class keydoor : Collectionable
 {
    protected override void Interact()
    {
@@ -10,8 +10,4 @@ public class keydoor : Interactable, Icollectionable
         Destroy(gameObject);
    }
 
-    public void Grab()
-    {
-
-    }
 }

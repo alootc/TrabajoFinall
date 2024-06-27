@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    public string id;
-    public string prompt_message;
+    //public string id;
+    public string mensaje;
 
    public void BaseInteract()
    {
@@ -20,8 +20,17 @@ public abstract class Interactable : MonoBehaviour
 
 }
 
-public interface Icollectionable
+public class Collectionable : Interactable
 {
+    public string id; 
 
-    void Grab();
+   public void Grab(Inventario inventory)
+   {
+        inventory.AddInventario(id);
+   }
+
+    protected override void Interact()
+    {
+        
+    }
 }

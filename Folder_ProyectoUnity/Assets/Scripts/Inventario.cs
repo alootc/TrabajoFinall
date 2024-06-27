@@ -5,6 +5,23 @@ using UnityEngine;
 
 public class Inventario : MonoBehaviour
 {
+    //
+    public static Inventario instance;
+    void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else if(instance == this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+    //
+
+
     public int capacity;
     public string[] items;
 
@@ -18,20 +35,20 @@ public class Inventario : MonoBehaviour
         items = new string[capacity];
     }
 
-    public void AddInventario(string item)
+    public bool AddInventario(string item)
     {
         for(int i = 0; i < items.Length; i++)
         {
-            if (items[i] == "")
+            if (string.IsNullOrEmpty(items[i]))
             {
                 items[i] = item;
                 onAddInventario?.Invoke(item);
-                return;
+                return true;
             }
         }
         Debug.Log("Inventario lleno");
         onFullInventario?.Invoke(item);
-
+        return false;
     }
 
     public void RemoveInventorio(string item)
@@ -41,7 +58,7 @@ public class Inventario : MonoBehaviour
             if (items[i] == item)
             {
                 items[i] = "";
-                onAddInventario?.Invoke(item);
+                onRemoveInventario?.Invoke(item);
                 return;
             }
         }
