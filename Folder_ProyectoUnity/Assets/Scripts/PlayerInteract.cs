@@ -18,13 +18,13 @@ public class PlayerInteract : MonoBehaviour
 
     public Text text_message;
 
-    private Inventario inventario;
+   
 
     void Start()
     {
         //input = GetComponent<StarterAssetsInputs>();
         cam = Camera.main;
-        inventario = GetComponent<Inventario>();
+        
     }
 
     private void OnEnable()
@@ -60,14 +60,6 @@ public class PlayerInteract : MonoBehaviour
     {
         if (!interactable) return;
         
-
-        if (interactable.TryGetComponent(out Collectionable c))
-        {
-            c.Grab(inventario);
-            
-            
-            //inventario.AddInventario(interactable.id);
-        }
         interactable.BaseInteract();
     }
 }

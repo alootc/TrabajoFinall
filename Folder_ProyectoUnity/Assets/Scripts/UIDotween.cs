@@ -20,9 +20,9 @@ public class UIDotween : MonoBehaviour
 
         rect_transform.DOAnchorPos(Vector3.zero, move_duration).SetEase(Ease.OutBounce);
 
-        scale_transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), scale_duration)
-            .SetEase(Ease.InOutQuad)
-            .SetLoops(-1, LoopType.Yoyo);
+        //scale_transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), scale_duration)
+            //.SetEase(Ease.InOutQuad)
+            //.SetLoops(-1, LoopType.Yoyo);
 
     }
 }

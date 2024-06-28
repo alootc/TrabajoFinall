@@ -24,9 +24,9 @@ public class Collectionable : Interactable
 {
     public string id; 
 
-   public void Grab(Inventario inventory)
+   public void Grab()
    {
-        inventory.AddInventario(id);
+        Inventario.instance.AddInventario(id);
    }
 
     protected override void Interact()

@@ -6,7 +6,7 @@ public class keydoor : Collectionable
 {
    protected override void Interact()
    {
-        
+        Grab();
         Destroy(gameObject);
    }
 

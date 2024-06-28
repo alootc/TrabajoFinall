@@ -26,7 +26,7 @@ public class Player3D : MonoBehaviour
 
     public void GameOver(bool result)
     {
-        // Verificamos que haya suscriptores al evento antes de invocarlo
+        
         onGameOver?.Invoke(result);
     }
 
@@ -44,9 +44,7 @@ public class Player3D : MonoBehaviour
 
     void EndGame(bool win)
     {
-        // Lógica para determinar si el jugador ganó o perdió
-
-        // Llamar al evento onGameOver con el resultado
+        
         if (onGameOver != null)
         {
             onGameOver(win);
