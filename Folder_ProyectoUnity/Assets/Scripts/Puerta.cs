@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class Puerta : Interactable
 {
-    public bool llave;
 
     public Transform left_door;
     public Transform right_door;
@@ -14,11 +13,12 @@ public class Puerta : Interactable
 
     protected override void Interact()
     {
-        if(llave)
+        if(Inventario.instance.GetInventario("Llave"))
         {
+
             left_door.DOLocalRotate(new Vector3(0, -90f, 0), duration_rotate, RotateMode.LocalAxisAdd);
             right_door.DOLocalRotate(new Vector3(0, 90f, 0), duration_rotate, RotateMode.LocalAxisAdd);
-
+            
             Debug.Log("Se abre la puerta");
         }
         else

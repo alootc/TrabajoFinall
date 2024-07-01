@@ -14,16 +14,12 @@ public class PlayerUI : MonoBehaviour
     {
        
         Inventario.instance.onAddInventario += AddInvenarioUI;
-
-
         
     }
 
     private void OnDestroy()
     {
         Inventario.instance.onAddInventario -= AddInvenarioUI;
-
-
         
     }
 

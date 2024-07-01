@@ -86,7 +86,4 @@ public class Player3D : MonoBehaviour
             Updatestaygame();
         }
     }
-
-    
-
 }

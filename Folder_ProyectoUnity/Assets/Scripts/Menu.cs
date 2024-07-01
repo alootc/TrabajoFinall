@@ -10,6 +10,16 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Opciones(string opciones)
+    {
+        SceneManager.LoadScene(opciones);
+    }
+
+    public void Volver(string nombreDeLaEscena)
+    {
+        SceneManager.LoadScene(nombreDeLaEscena);
+    }
+
     public void Salir()
     {
         Debug.Log("Saliste");

@@ -26,8 +26,8 @@ public class SoundManager : MonoBehaviour
         value = save_volume.music_volume;
         audio_mixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20f);
 
-        //value = save_volume.sfx_volume;
-        //audio_mixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20f);
+        value = save_volume.sfx_volume;
+        audio_mixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20f);
     }
 
     

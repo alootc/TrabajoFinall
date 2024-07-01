@@ -28,6 +28,7 @@ public class Inventario : MonoBehaviour
     public event Action<string> onAddInventario;
     public event Action<string> onRemoveInventario;
     public event Action<string> onFullInventario;
+    public event Action<string> onSelectItem;
 
     private void Start()
     {
@@ -35,6 +36,15 @@ public class Inventario : MonoBehaviour
         items = new string[capacity];
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            string item = items[0];
+            if(!string.IsNullOrEmpty(item))
+                onSelectItem?.Invoke(item);
+        }
+    }
     public bool AddInventario(string item)
     {
         for(int i = 0; i < items.Length; i++)
@@ -64,5 +74,15 @@ public class Inventario : MonoBehaviour
         }
         Debug.LogWarning("Item no encontrado");
     }
-
+    public bool GetInventario(string item)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] == item)
+            {
+                return true;
+            }   
+        }
+        return false;
+    }
 }
