@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GraficoContoller : MonoBehaviour
 {
-    public Graficonodirigido nodo;
+    public Grafonodirigidolab nodo;
     public float speed;
     public int energy;
 
@@ -66,7 +66,7 @@ public class GraficoContoller : MonoBehaviour
 
     private void CheckNodo()
     {
-        Graficonodirigido node_tmp = nodo.GetNodeRandom();
+        Grafonodirigidolab node_tmp = nodo.GetNodeRandom();
         if (energy >= node_tmp.cost_energy)
         {
             nodo = node_tmp;

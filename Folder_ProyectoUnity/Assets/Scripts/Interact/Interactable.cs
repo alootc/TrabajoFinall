@@ -9,13 +9,17 @@ public abstract class Interactable : MonoBehaviour
 
    public void BaseInteract()
    {
-
+        Debug.Log("BaseInteract called"); 
         Interact();
    }
 
     protected virtual void Interact()
     {
 
+    }
+    private void OnMouseDown()
+    {
+        BaseInteract();
     }
 
 }
@@ -31,6 +35,9 @@ public class Collectionable : Interactable
 
     protected override void Interact()
     {
-        
+        Debug.Log("Collected: " + id); 
+        Grab();
     }
+
+    
 }

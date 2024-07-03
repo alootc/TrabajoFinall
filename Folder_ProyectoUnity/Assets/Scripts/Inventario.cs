@@ -21,9 +21,8 @@ public class Inventario : MonoBehaviour
     }
     //
 
-
     public int capacity;
-    public string[] items;
+    public ListaSimplemente<string> items = new();
 
     public event Action<string> onAddInventario;
     public event Action<string> onRemoveInventario;
@@ -33,32 +32,46 @@ public class Inventario : MonoBehaviour
     private void Start()
     {
         
-        items = new string[capacity];
+        //items = new string[capacity];
     }
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            string item = items[0];
-            if(!string.IsNullOrEmpty(item))
-                onSelectItem?.Invoke(item);
+            items.PrintAllNodess();
         }
+
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    string item = items[0];
+        //    if(!string.IsNullOrEmpty(item))
+        //        onSelectItem?.Invoke(item);
+        //}
     }
     public bool AddInventario(string item)
     {
-        for(int i = 0; i < items.Length; i++)
+        if (items.Length == capacity)
         {
-            if (string.IsNullOrEmpty(items[i]))
-            {
-                items[i] = item;
-                onAddInventario?.Invoke(item);
-                return true;
-            }
+            Debug.Log("Inventario lleno");
+            onFullInventario?.Invoke(item);
+            return false;
         }
-        Debug.Log("Inventario lleno");
-        onFullInventario?.Invoke(item);
-        return false;
+
+        items.InsertNodeEnd(item);
+        onAddInventario?.Invoke(item);
+        return true;
+
+        //for(int i = 0; i < items.Length; i++)
+        //{
+        //    if (string.IsNullOrEmpty(items[i]))
+        //    {
+        //        items[i] = item;
+        //        onAddInventario?.Invoke(item);
+        //        return true;
+        //    }
+        //}
+
     }
 
     public void RemoveInventorio(string item)
@@ -81,8 +94,9 @@ public class Inventario : MonoBehaviour
             if (items[i] == item)
             {
                 return true;
-            }   
+            }
         }
+        //Debug.Log($"Item not found: {item}");
         return false;
     }
 }

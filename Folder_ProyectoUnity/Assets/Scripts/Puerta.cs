@@ -13,12 +13,12 @@ public class Puerta : Interactable
 
     protected override void Interact()
     {
-        if(Inventario.instance.GetInventario("Llave"))
+        if (Inventario.instance.GetInventario("Llave"))
         {
 
             left_door.DOLocalRotate(new Vector3(0, -90f, 0), duration_rotate, RotateMode.LocalAxisAdd);
             right_door.DOLocalRotate(new Vector3(0, 90f, 0), duration_rotate, RotateMode.LocalAxisAdd);
-            
+
             Debug.Log("Se abre la puerta");
         }
         else

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e527fdd6c4f344ba389b5e6294793f, type: 3}
   m_Name: SaveVolume
   m_EditorClassIdentifier: 
-  master_volumen: 0.001
-  music_volume: 0.79999995
-  sfx_volume: 0.79999995
+  master_volumen: -0.47
+  music_volume: 0.77
+  sfx_volume: 1.53
